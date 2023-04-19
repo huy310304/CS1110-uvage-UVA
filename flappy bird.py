@@ -25,16 +25,15 @@
 # Additional Feature 4 (Health Bar): The bird's health is shown through a health bar. Every time the bird touches a
 # pipe, the bar will get shorter by 33%.
 
-# LOWER THE SPEED AFTER TOUCH: MAKE AN BIG INVISIBLE LINE TO REPRESENT THE AREA THAT THE SPEED OF THE BIRD SHOULD BE LOWER
-# IT WILL BE ACTIVE WHENEVER THE BIRD LOSES HEALTH
+# CREATE VARIABLE LV1, LV2
 
 import uvage
 from random import randint
 
-#camera 800 x 600
+# camera 800 x 600
 camera = uvage.Camera(800, 600)
 
-#character bird
+# character bird
 bird_images = uvage.load_sprite_sheet("CS1110_BirdSprite.png", 1, 4)
 current_frame = 0
 bird = uvage.from_image(50, 300, bird_images[int(current_frame)])
@@ -42,7 +41,7 @@ bird.height = 40
 
 def loop_images():
     global bird, bird_images, current_frame
-    current_frame += 0.4
+    current_frame += 0.6
     bird.image = bird_images[int(current_frame)]
     if current_frame >= len(bird_images) - 1:
         current_frame = 0
@@ -76,10 +75,17 @@ invisible_area1 = uvage.from_color(50, 300, "tan", 50, 600)
 health_bar_length = 600
 health_bar = uvage.from_color(0, 20, "red", health_bar_length, 20)
 
+# cond
 game_start = False
-game_over = False
-win_game = False
+game_over_1 = False
+game_over_2 = False
+win_game_1 = False
+win_game_2 = False
 before_touch = False
+lv1 = False
+lv2 = False
+
+# physics
 gravity = 0.8
 pipe_speed_x = 2.5
 pipe_speed_y = 1.25
@@ -88,16 +94,104 @@ touch_count1 = 0
 touch_count2 = 0
 touch_count3 = 0
 
+# panels
 start_panel = uvage.from_text(400, 300, "Press ENTER to start game", 50, "red")
-end_panel1 = uvage.from_text(400, 250, "Game over, you got " + str(count) + " points", 50 , "red")
-end_panel2 = uvage.from_text(400, 325, "Press R to play again", 50, "red")
+end_panel1 = uvage.from_text(400, 250, "Game over, you got " + str(count) + " points", 50, "red")
+end_panel2 = uvage.from_text(400, 300, "Press R to play again", 50, "red")
 win_panel = uvage.from_text(400, 250, "Congratulations! You Won!", 50, "red")
+next_panel = uvage.from_text(400, 350, "or Press N to continue to Level 2", 50, "red")
 
 def start_game():
     global game_start, before_touch
     if uvage.is_pressing("return"):
         game_start = True
         before_touch = True
+
+def win_1():
+    global count, win_game_1
+    if count == 2:
+        win_game_1 = True
+
+def win_2():
+    global count, win_game_2
+    if count == 3:
+        win_game_2 = True
+
+def lose_1():
+    global health_bar_length, game_over_1
+    if health_bar_length == 0:
+        game_over_1 = True
+
+def lose_2():
+    global health_bar_length, game_over_2
+    if health_bar_length == 0:
+        game_over_2 = True
+
+def end_game():
+    global end_panel1
+    end_panel1 = uvage.from_text(400, 250, "Game over, you got " + str(count) + " point(s)", 50, "red")
+
+def play_agian():
+    global game_over_1, game_over_2, win_game_1, win_game_2, health_bar_length, count, lv2
+    global health_bar, bird, y_bottom1, y_bottom2, y_bottom3, pipe_bottom1, pipe_bottom2, pipe_bottom3, pipe_top1, pipe_top2, pipe_top3
+    global invisible_line1, invisible_line2, invisible_line3, invisible_area1
+    if uvage.is_pressing("r"):
+        game_over_1 = False
+        game_over_2 = False
+        win_game_1 = False
+        win_game_2 = False
+        lv2 = False
+        reset()
+
+    if uvage.is_pressing("n"):
+        game_over_1 = False
+        game_over_2 = False
+        win_game_1 = False
+        win_game_2 = False
+        lv2 = True
+        reset()
+
+def reset():
+    global count, health_bar_length
+    global health_bar, bird, y_bottom1, y_bottom2, y_bottom3, pipe_bottom1, pipe_bottom2, pipe_bottom3, pipe_top1, pipe_top2, pipe_top3
+    global invisible_line1, invisible_line2, invisible_line3, invisible_area1
+    count = 0
+    health_bar_length = 600
+    y_bottom1 = 750
+    health_bar = uvage.from_color(0, 20, "red", health_bar_length, 20)
+    pipe_bottom1 = uvage.from_image(200, y_bottom1, "CS1110_MarioPipe.png")
+    pipe_bottom1.height = 600
+    pipe_bottom2 = uvage.from_image(500, y_bottom2, "CS1110_MarioPipe.png")
+    pipe_bottom2.height = 600
+    pipe_bottom3 = uvage.from_image(800, y_bottom3, "CS1110_MarioPipe.png")
+    pipe_bottom3.height = 600
+
+    pipe_top1 = uvage.from_image(200, y_bottom1 - 750, "CS1110_MarioPipeRev.png")
+    pipe_top1.height = 600
+    pipe_top2 = uvage.from_image(500, y_bottom2 - 750, "CS1110_MarioPipeRev.png")
+    pipe_top2.height = 600
+    pipe_top3 = uvage.from_image(800, y_bottom3 - 750, "CS1110_MarioPipeRev.png")
+    pipe_top3.height = 600
+
+    invisible_line1 = uvage.from_color(200, 300, "tan", 2, 600)
+    invisible_line2 = uvage.from_color(500, 300, "tan", 2, 600)
+    invisible_line3 = uvage.from_color(800, 300, "tan", 2, 600)
+
+    invisible_area1 = uvage.from_color(50, 300, "tan", 50, 600)
+    bird = uvage.from_image(50, 300, bird_images[int(current_frame)])
+    bird.height = 40
+
+def boundaries():
+    global bird
+    if bird.y > 580:
+        bird.y = 580
+        bird.speedy = 0
+    if bird.x > 780:
+        bird.x = 780
+    if bird.x < 20:
+        bird.x = 20
+    if bird.y < 20:
+        bird.y = 20
 
 def pipe_movement():
     global pipe_speed_x
@@ -143,6 +237,12 @@ def pipe_movement2():
         pipe_bottom1.speedy = -pipe_speed_y
         pipe_top1.speedy = -pipe_speed_y
 
+def bird_control():
+    global bird, gravity
+    bird.speedy += gravity
+    if uvage.is_pressing('up arrow') or uvage.is_pressing("space"):
+        bird.speedy = -7
+
 def bird_touch_pipe():
     global health_bar_length, health_bar, before_touch
     global invisible_area1
@@ -172,13 +272,6 @@ def bird_touch_pipe():
         before_touch = True
     if health_bar_length == 0:
         end_game()
-
-def lower_game_speed():
-    global pipe_speed_x, before_touch
-    if bird.touches(invisible_area1) and before_touch:
-        pipe_speed_x = 1.25
-    else:
-        pipe_speed_x = 2.5
 
 def draw_again():
     global y_bottom1, y_bottom2, y_bottom3, pipe_bottom1, pipe_bottom2, pipe_bottom3, pipe_top1, pipe_top2, pipe_top3
@@ -235,78 +328,23 @@ def score_counter():
     else:
         touch_count3 = 0
 
-def win():
-    global count, win_game
-    if count == 20:
-        win_game = True
-
-def bird_control():
-    global bird, gravity
-    bird.speedy += gravity
-    if uvage.is_pressing('up arrow') or uvage.is_pressing("space"):
-        bird.speedy = -7
-
-def end_game():
-    global end_panel1, game_over, count
-    game_over = True
-    end_panel1 = uvage.from_text(400, 250, "Game over, you got " + str(count) + " point(s)", 50, "red")
-
-def boundaries():
-    global bird
-    if bird.y > 580:
-        bird.y = 580
-        bird.speedy = 0
-    if bird.x > 780:
-        bird.x = 780
-    if bird.x < 20:
-        bird.x = 20
-    if bird.y < 20:
-        bird.y = 20
-
-def play_agian():
-    global game_over, win_game, health_bar_length, count
-    global health_bar, bird, y_bottom1, y_bottom2, y_bottom3, pipe_bottom1, pipe_bottom2, pipe_bottom3, pipe_top1, pipe_top2, pipe_top3
-    global invisible_line1, invisible_line2, invisible_line3, invisible_area1
-    if uvage.is_pressing("r"):
-        game_over = False
-        win_game = False
-        count = 0
-        health_bar_length = 600
-        y_bottom1 = 750
-        health_bar = uvage.from_color(0, 20, "red", health_bar_length, 20)
-        pipe_bottom1 = uvage.from_image(200, y_bottom1, "CS1110_MarioPipe.png")
-        pipe_bottom1.height = 600
-        pipe_bottom2 = uvage.from_image(500, y_bottom2, "CS1110_MarioPipe.png")
-        pipe_bottom2.height = 600
-        pipe_bottom3 = uvage.from_image(800, y_bottom3, "CS1110_MarioPipe.png")
-        pipe_bottom3.height = 600
-
-        pipe_top1 = uvage.from_image(200, y_bottom1 - 750, "CS1110_MarioPipeRev.png")
-        pipe_top1.height = 600
-        pipe_top2 = uvage.from_image(500, y_bottom2 - 750, "CS1110_MarioPipeRev.png")
-        pipe_top2.height = 600
-        pipe_top3 = uvage.from_image(800, y_bottom3 - 750, "CS1110_MarioPipeRev.png")
-        pipe_top3.height = 600
-
-        invisible_line1 = uvage.from_color(200, 300, "tan", 2, 600)
-        invisible_line2 = uvage.from_color(500, 300, "tan", 2, 600)
-        invisible_line3 = uvage.from_color(800, 300, "tan", 2, 600)
-
-        invisible_area1 = uvage.from_color(50, 300, "tan", 50, 600)
-        bird = uvage.from_image(50, 300, bird_images[int(current_frame)])
-        bird.height = 40
+def lower_game_speed():
+    global pipe_speed_x, before_touch, pipe_speed_y, current_frame
+    if bird.touches(invisible_area1) and before_touch:
+        pipe_speed_x = 1.25
+        pipe_speed_y = 0.75
+        current_frame -= 0.4
+    else:
+        pipe_speed_x = 2.5
 
 def tick():
-    global pipe_speed_x
-    global game_over, game_start
+    global pipe_speed_x, game_start
+    global game_over_1, game_over_2, win_game_1, win_game_2
     camera.clear("tan")
     start_game()
     if not game_start:
         camera.draw(start_panel)
-    elif game_start and not game_over and not win_game:
-        draw_again()
-        bird_control()
-        bird.move_speed()
+    elif game_start and not game_over_1 and not game_over_2 and not win_game_1 and not win_game_2:
         camera.draw(invisible_line1)
         camera.draw(invisible_line2)
         camera.draw(invisible_line3)
@@ -318,23 +356,36 @@ def tick():
         camera.draw(pipe_top2)
         camera.draw(pipe_top3)
         camera.draw(health_bar)
-        lower_game_speed()
-        score_counter()
-        win()
-        pipe_movement2()
-        pipe_movement()
-        boundaries()
-        bird_touch_pipe()
         camera.draw(bird)
         loop_images()
-        print(bird.width)
-    elif game_over and not win_game:
+        bird_control()
+        bird.move_speed()
+        boundaries()
+        bird_touch_pipe()
+        pipe_movement()
+        if lv2:
+            pipe_movement2()
+        score_counter()
+        lower_game_speed()
+        win_1()
+        lose_1()
+        draw_again()
+    elif game_over_1 or game_over_2:
+        end_game()
         camera.draw(end_panel1)
         camera.draw(end_panel2)
         play_agian()
-    elif win_game:
+    elif win_game_1:
+        end_game()
         camera.draw(win_panel)
         camera.draw(end_panel2)
+        camera.draw(next_panel)
+        play_agian()
+    elif win_game_2:
+        end_game()
+        camera.draw(win_panel)
+        camera.draw(end_panel2)
+        camera.draw(next_panel)
         play_agian()
     camera.display()
 
