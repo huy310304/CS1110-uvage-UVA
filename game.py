@@ -395,4 +395,4 @@ def tick():
         play_again()
     camera.display()
 
-uvage.timer_loop(60, tick)
+uvage.timer_loop(40, tick)
