@@ -1,1 +1,1 @@
-# Final Project of CS 1110 @UVA
+# Final Project - CS 1110 @UVA
