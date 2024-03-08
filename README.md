@@ -10,7 +10,16 @@ This README provides details on our Flappy Bird game project, originally develop
 
 *Demo details or link to video will be added soon.*
 
-## How to Play
+## How To Download and Play Pygame Version
+
+I have finished converting this game to Pygame to make it accessible to a wider audience. The Pygame version will maintain the core gameplay while enhancing accessibility and playability.
+
+Follow the steps below to run the game on your local computer
+
+1. Ensure you have Python and Pygame installed on your system.
+2. Download the game using Git: 
+
+## How to Play (uvage version for CS_1110)
 
 ### Starting the Game
 
@@ -51,12 +60,8 @@ This README provides details on our Flappy Bird game project, originally develop
 - A health bar that depletes upon collision.
 - Options to restart or progress levels.
 
-## Transition to Pygame
-
-We are in the process of porting this game to Pygame to make it accessible to a wider audience. The Pygame version will maintain the core gameplay while enhancing accessibility and playability.
-
 ## Credits
 
 Developed by Huy Nguyen and Theodore LengKong as a collaborative final project for the CS1110 course, initially using the `uvage` library. The transition to Pygame aims to extend the game's reach beyond the confines of the UVA CS 1110 course.
 
-Stay tuned for updates and the release of the Pygame version and enjoy watching the game (for now)!
+Enjoy :D
