@@ -18,7 +18,7 @@ To run the game on your local computer, follow these specific steps:
 
 1. **Install Python**: Make sure Python is installed on your system. If not, download and install it from [python.org](https://www.python.org/).
 2. **Install Pygame**: Open your terminal and install Pygame by running: `pip install pygame`
-3. **Download the game**: Clone the repository using `git clone ...`
+3. **Download the game**: Clone the repository using `git clone https://github.com/huy310304/flappy-bird-game.git`
 4. **Run the game**: Navigate to the pygame folder using `cd flappy-bird-game/pygame` and run the game by `python game.py`.
 
 ## How to Play (uvage version for CS_1110)
