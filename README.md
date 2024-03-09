@@ -12,12 +12,35 @@ This README provides details on our Flappy Bird game project, originally develop
 
 ## How To Download and Play Pygame Version
 
-I have finished converting this game to Pygame to make it accessible to a wider audience. The Pygame version will maintain the core gameplay while enhancing accessibility and playability.
+We've successfully converted this game to Pygame to make it accessible to a wider audience. The Pygame version maintains the core gameplay while enhancing both accessibility and playability.
 
-Follow the steps below to run the game on your local computer
+Follow these specific steps to download and run the game on your local computer:
 
-1. Ensure you have Python and Pygame installed on your system.
-2. Download the game using Git: 
+1. **Install Python**: Ensure Python is installed on your system. If it's not already installed, you can download and install it from [python.org](https://www.python.org/).
+
+2. **Install Pygame**: Open your terminal (Command Prompt on Windows, Terminal on macOS and Linux) and install Pygame by executing the following command:
+    ```
+    pip install pygame
+    ```
+
+3. **Download the Game**: Clone the game repository from GitHub to your local machine using the following command in your terminal:
+    ```
+    git clone https://github.com/huy310304/flappy-bird-game.git
+    ```
+   This command creates a local copy of the game source code on your computer.
+
+4. **Run the Game**: Navigate to the directory containing the game's Pygame version. You can do this by typing:
+    ```
+    cd flappy-bird-game/pygame
+    ```
+   Once you're in the correct directory, start the game by running:
+    ```
+    python game.py
+    ```
+   This will launch the game window, and you can start playing the Pygame version of Flappy Bird right away.
+
+Remember, the commands `python game.py` might vary depending on your Python installation. If you have Python 3 installed alongside Python 2, you may need to use `python3 game.py` instead.
+
 
 ## How to Play (uvage version for CS_1110)
 
