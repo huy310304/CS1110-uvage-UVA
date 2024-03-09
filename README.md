@@ -39,7 +39,7 @@ Follow these specific steps to download and run the game on your local computer:
     ```
    This will launch the game window, and you can start playing the Pygame version of Flappy Bird right away.
 
-5. **Play the Game**: The `pygame` version encompasses most of the fundamental features described below. To interact with the game, simply press either the Space key or the Up Arrow key to make the bird flap upwards.
+5. **Play the Game**: The `pygame` version encompasses most of the fundamental features described below. To interact with the game, simply press either the SPACE key or the UP ARROW key to make the bird flap upwards.
 
 <br>
 
