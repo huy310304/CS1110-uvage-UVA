@@ -14,10 +14,14 @@ This README provides details on our Flappy Bird game project, originally develop
 
 I have finished converting this game to Pygame to make it accessible to a wider audience. The Pygame version will maintain the core gameplay while enhancing accessibility and playability.
 
-Follow the steps below to run the game on your local computer
+To run the game on your local computer, follow these specific steps:
 
-1. Ensure you have Python and Pygame installed on your system.
-2. Download the game using Git: 
+1. **Install Python**: Make sure Python is installed on your system. If not, download and install it from [python.org](https://www.python.org/).
+2. **Install Pygame**: Open your terminal (Command Prompt on Windows, Terminal on macOS and Linux) and install Pygame by running:
+   ```sh
+   pip install pygame
+3. **Download the game**: Clone the repository using `git clone ...`
+4. **Run the game**: Navigate to the pygame folder using `cd flappy-bird-game/pygame` and run the game by `python game.py`.
 
 ## How to Play (uvage version for CS_1110)
 
