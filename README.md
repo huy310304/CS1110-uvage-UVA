@@ -1,4 +1,4 @@
-# Final Project - CS 1110 @ UVA-CS
+# Flappy Bird Game Project - CS 1110 @ UVA-CS
 
 This project is a part of the coursework for CS 1110 at the University of Virginia. For more course details, visit the [Course Site and Information](https://www.coursicle.com/virginia/courses/CS/1110/).
 
