@@ -6,7 +6,7 @@ This project is a part of the coursework for CS 1110 at the University of Virgin
 
 This README provides details on our Flappy Bird game project, originally developed using the `uvage` library for the CS1110 course. Due to the `uvage` library's limited availability outside the course, I have transitioned this game to using `pygame` for broader access and playability.
 
-## Demo
+## Demo (PYGAME VERSION)
 
 ![Gameplay Demo](demo.gif)
 
@@ -39,44 +39,9 @@ Follow these specific steps to download and run the game on your local computer:
     ```
    This will launch the game window, and you can start playing the Pygame version of Flappy Bird right away.
 
-5. **Play the Game**: The `pygame` version encompasses most of the fundamental features described below. To interact with the game, simply press either the SPACE key or the UP ARROW key to make the bird flap upwards.
+5. **Play the Game**: The `pygame` version encompasses most of the fundamental features in the `uvage` version described below. To interact with the game, simply press either the SPACE key or the UP ARROW key to make the bird flap upwards.
 
-<br>
-
-## How to Play (uvage version for CS_1110) 
-
-### Starting the Game
-
-- Launch the game script in your Python environment.
-- Press **ENTER** to begin Level 1.
-
-### Controls
-
-- **Space** or **Up Arrow**: Flap the bird upwards. Release to let it fall.
-- **R**: Restart the game after a game over.
-- **N**: Advance to the next level after completing Level 1.
-
-### Objectives
-
-- Guide the bird through gaps between pipes without colliding.
-- Aim to cross as many pipes as possible to increase your score.
-
-### Levels
-
-- **Level 1**: Features standard gameplay with static pipes.
-- **Level 2**: Introduces moving pipes, adding an extra layer of challenge.
-
-### Game Over
-
-- The game concludes when the bird collides with pipes or the ground.
-- Each collision reduces the health bar until the game ends.
-
-### Winning the Game
-
-- Successfully navigate through 20 pipes to complete a level.
-- Completing Level 1 allows progression to Level 2 by pressing **N**.
-
-## Features
+## Features (UVAGE Version)
 
 - Animated sprite for the bird character.
 - Dynamic pipe movement in Level 2, with vertical motion.
