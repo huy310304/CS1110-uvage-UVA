@@ -1,10 +1,10 @@
-# Final Project - CS 1110 @ UVA
+# Final Project - CS 1110 @ UVA-CS
 
 This project is a part of the coursework for CS 1110 at the University of Virginia. For more course details, visit the [Course Site and Information](https://www.coursicle.com/virginia/courses/CS/1110/).
 
 ## Overview
 
-This README provides details on our Flappy Bird game project, originally developed using the `uvage` library for the CS1110 course. Due to the `uvage` library's limited availability outside the course, we are transitioning this game to Pygame for broader access and playability.
+This README provides details on our Flappy Bird game project, originally developed using the `uvage` library for the CS1110 course. Due to the `uvage` library's limited availability outside the course, I have transitioned this game to using `pygame` for broader access and playability.
 
 ## Demo
 
@@ -39,10 +39,11 @@ Follow these specific steps to download and run the game on your local computer:
     ```
    This will launch the game window, and you can start playing the Pygame version of Flappy Bird right away.
 
-Remember, the commands `python game.py` might vary depending on your Python installation. If you have Python 3 installed alongside Python 2, you may need to use `python3 game.py` instead.
+5. **Play the Game**: The `pygame` version encompasses most of the fundamental features described below. To interact with the game, simply press either the SPACE key or the UP ARROW key to make the bird flap upwards.
 
+<br>
 
-## How to Play (uvage version for CS_1110)
+## How to Play (uvage version for CS_1110) 
 
 ### Starting the Game
 
