@@ -8,7 +8,7 @@ This README provides details on our Flappy Bird game project, originally develop
 
 ## Demo
 
-*Demo details or link to video will be added soon.*
+![Gameplay Demo](demo.gif)
 
 ## How To Download and Play Pygame Version
 
