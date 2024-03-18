@@ -229,7 +229,7 @@ def main():
 
         # Generate new pipes
         if add_pipe:
-            if score > 15:  # Start moving pipes after score reaches 20
+            if score > 20:  # Start moving pipes after score reaches 15
                 pipes.append(Pipe(SCREEN_WIDTH, moving=True)) 
             else:
                 pipes.append(Pipe(SCREEN_WIDTH))
