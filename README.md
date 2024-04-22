@@ -4,7 +4,7 @@ This project is a part of the coursework for CS 1110 at the University of Virgin
 
 ## Overview
 
-This README provides details on our Flappy Bird game project, originally developed using the `uvage` library for the CS1110 course. Due to the `uvage` library's limited availability outside the course, I have transitioned this game to using `pygame` for broader access and playability.
+Flappy Bird game project, originally developed using the `uvage` library for the CS1110 course. Due to the `uvage` library's limited availability outside the course, I have transitioned this game to using `pygame` for broader access and playability.
 
 ## Demo (PYGAME VERSION)
 
